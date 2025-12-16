@@ -7,23 +7,25 @@ This program generates all prime numbers up to a user-specified value.
 
 
 def main() -> None:
-    """The main() function gets a number and prints all primes up to that number."""
+    """Gets a number and prints all primes up to that number."""
     try:
         # Input
-        limit = int(input("Enter a positive integer: "))
+        user_limit = int(input("Enter a positive integer: "))
 
-        if limit < 2:
+        if user_limit < 2:
             print("There are no prime numbers less than 2.")
         else:
-            print(f"Prime numbers up to {limit}:")
-            for num in range(2, limit + 1):
+            print(f"Prime numbers up to {user_limit}:")
+            for current_number in range(2, user_limit + 1):
                 is_prime = True
-                for i in range(2, int(num**0.5) + 1):
-                    if num % i == 0:
+                for test_divisor in range(2, int(current_number ** 0.5) + 1):
+                    if current_number % test_divisor == 0:
                         is_prime = False
                         break
+
                 if is_prime:
-                    print(num, end=" ")
+                    print(current_number, end=" ")
+
             print()  # newline after listing primes
 
     except ValueError:
@@ -34,3 +36,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    
